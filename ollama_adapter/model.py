@@ -32,13 +32,13 @@ class Model:
                 HumanMessage(content=user_prompt)
             ])
         except Exception as e:
-            logger.error(f"Error invoking the LLM: {e}")
+            print(f"Error invoking the LLM: {e}")
             return None
 
         if response and hasattr(response, "content"):
             return response.content
 
-        logger.warning("Received an empty response from the LLM.")
+        print("Received an empty response from the LLM.")
         return None
 
     def llm_task(self, system_prompt: str, user_prompt: str, output_format: Dict[str, Any]) -> Dict[str, Any]:
@@ -58,5 +58,5 @@ class Model:
                 llm=self.llm
             )
         except Exception as e:
-            logger.error(f"Error processing structured LLM task: {e}")
+            print(f"Error processing structured LLM task: {e}")
             return {}

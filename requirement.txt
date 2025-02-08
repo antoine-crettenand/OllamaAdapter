@@ -1,3 +1,4 @@
 colorama
 langchain-ollama
+langchain
 strictjson
